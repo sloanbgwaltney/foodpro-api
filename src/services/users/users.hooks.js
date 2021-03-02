@@ -14,7 +14,7 @@ module.exports = {
     get: [authenticate('jwt')],
     create: [
       hashPassword('password'),
-      setContext('data', 'emailVerificationCode', uuid.v4())
+      setContext('data', 'emailVerificationToken', uuid.v4())
     ],
     update: [hashPassword('password'), authenticate('jwt')],
     patch: [hashPassword('password'), authenticate('jwt')],
@@ -25,7 +25,7 @@ module.exports = {
     all: [
       // Make sure the password field is never sent to the client
       // Always must be the last hook
-      protect('password', 'emailVerificationCode')
+      protect('password', 'emailVerificationToken')
     ],
     find: [],
     get: [],
