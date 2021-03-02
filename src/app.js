@@ -15,7 +15,7 @@ const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
 const channels = require('./channels');
-
+const eventListeners = require('./event-listeners');
 const authentication = require('./authentication');
 
 const mongoose = require('./mongoose');
@@ -49,6 +49,7 @@ app.configure(authentication);
 app.configure(services);
 // Set up event channels (see channels.js)
 app.configure(channels);
+app.configure(eventListeners);
 
 // Configure a middleware for 404s and the error handler
 app.use(express.notFound());
