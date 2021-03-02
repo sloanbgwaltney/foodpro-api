@@ -14,7 +14,7 @@ module.exports = function (app) {
     email: { type: String, unique: true, lowercase: true, required: true },
     password: { type: String, required: true },
     emailVerified: { type: Boolean, default: false },
-    emailVerificationCode: { type: String },
+    emailVerificationToken: { type: String },
     passwordResetToken: { type: String },
     passwordResetTokenExpiresAt: { type: Number }
   }, {
