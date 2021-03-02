@@ -28,5 +28,8 @@
       "passwordField": "password"
     }
   },
+  "email": {
+    "accountsEmail": "account@test.com"
+  },
   "mongodb": "mongodb://localhost:27017/foodpro"
 }
