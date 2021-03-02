@@ -1,16 +1,22 @@
 // users-model.js - A mongoose model
 //
 // See http://mongoosejs.com/docs/models.html
+
+
 // for more of what you can do here.
 module.exports = function (app) {
   const modelName = 'users';
   const mongooseClient = app.get('mongooseClient');
   const schema = new mongooseClient.Schema({
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
     username: { type: String, unique: true, lowercase: true, required: true },
     email: { type: String, unique: true, lowercase: true, required: true },
     password: { type: String, required: true },
-
-
+    emailVerified: { type: Boolean, default: false },
+    emailVerificationCode: { type: String },
+    passwordResetToken: { type: String },
+    passwordResetTokenExpiresAt: { type: Number }
   }, {
     timestamps: true
   });
