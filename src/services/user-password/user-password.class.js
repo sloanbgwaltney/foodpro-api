@@ -35,8 +35,4 @@ exports.UserPassword = class UserPassword {
 
     return userService.patch(user._id, { passwordResetToken: undefined, passwordResetTokenExpiresAt: undefined, password: newPassword });
   }
-
-  async update (id, data, params) {
-    return data;
-  }
 };
